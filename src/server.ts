@@ -29,7 +29,11 @@ export class ProvaTesteComponent {
 		this.listLivros.push({ id: 5, nome: 'O poder da ação', genero: "Administração" })
 	}
 
-	criarUmNovoLivro(nome: string, genero: string){
+	/**
+	 * Essa função cria livros na base utilizando o nome e o genero.
+	 * @Returns: Retorna vazio ou uma string indicando que o livro já existe.
+	 */
+	criarUmNovoLivro(nome: string, genero: string): string | undefined {
 		if (this.buscarLivro(nome, genero) === -1){
 			const novoLivro: Livro = {
 				id: this.listLivros.length,
@@ -38,28 +42,45 @@ export class ProvaTesteComponent {
 			} 
 
 			this.listLivros.push(novoLivro)
+
+			return;
 		} else {
 			/**
 			 * Monte a mensagem de erro avisando que já existe um Livro cadastrado sobre o nome e genero passados
 			 */
+			// Retorna uma mensagem dizendo que o livro já existe no cadastro.
 			return `O livro: ${nome} do genero: ${genero}, Já existe no cadastro de livros.`;
 		}
 	}
 
+
+	/**
+	 * Essa função busca livros na base utilizando o nome e o genero.
+	 * @Returns: Retorna o indice do livro buscado ou −1 caso livro não exista na base
+	 */
 	buscarLivro(livro: string, genero: string): number{
+
+
 		let indiceLivro: number = -1
 		for (let index = 0; index < this.listLivros.length; index++) {
 			const livro = this.listLivros[index]
 			/**
              * Implemente a validação onde retorne o Indice do Livro caso encontre um com mesmo nome e genero
              */
+			// verifica se o nome e o genero são estritamente iguais
 			if(livro.nome === livro && livro.genero === genero){
+
+				// Atribui valor do indice do livro a variável indiceLivro
 				indiceLivro = livro.id
 			}
 		}
 		return indiceLivro
 	}
 
+	/**
+	 * Essa função filtra e lista todos os livros cadastrados na base.
+	 * @Returns: Retorna uma lista de livros em string separados por "," ou uma mensagem indicando que não possuem livros de fantasia na lista.
+	 */
 	listarLivrosFantasia(): string{
 		/**
 		 * Retorne uma String contendo o nome de todos os Livros que são de fantasia.
