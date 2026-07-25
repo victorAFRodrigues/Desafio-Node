@@ -60,18 +60,17 @@ export class ProvaTesteComponent {
 	 */
 	buscarLivro(livro: string, genero: string): number{
 
-
 		let indiceLivro: number = -1
 		for (let index = 0; index < this.listLivros.length; index++) {
-			const livro = this.listLivros[index]
+			const _livro:Livro = this.listLivros[index]
 			/**
              * Implemente a validação onde retorne o Indice do Livro caso encontre um com mesmo nome e genero
              */
 			// verifica se o nome e o genero são estritamente iguais
-			if(livro.nome === livro && livro.genero === genero){
+			if(_livro.nome === livro && _livro.genero === genero){
 
 				// Atribui valor do indice do livro a variável indiceLivro
-				indiceLivro = livro.id
+				indiceLivro = _livro.id
 			}
 		}
 		return indiceLivro
