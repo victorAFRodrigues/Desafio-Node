@@ -42,6 +42,7 @@ export class ProvaTesteComponent {
 			/**
 			 * Monte a mensagem de erro avisando que já existe um Livro cadastrado sobre o nome e genero passados
 			 */
+			return `O livro: ${nome} do genero: ${genero}, Já existe no cadastro de livros.`;
 		}
 	}
 
