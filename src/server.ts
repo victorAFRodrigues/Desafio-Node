@@ -30,7 +30,7 @@ export class ProvaTesteComponent {
 	}
 
 	criarUmNovoLivro(nome: string, genero: string){
-		if (this.buscarLivro(nome, genero) === 0){
+		if (this.buscarLivro(nome, genero) === -1){
 			const novoLivro: Livro = {
 				id: this.listLivros.length,
 				nome: nome,

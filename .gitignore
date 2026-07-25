@@ -120,3 +120,5 @@ dist
 
 #PackageLock
 package-lock.json
+
+.idea
