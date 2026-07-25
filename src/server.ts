@@ -64,6 +64,19 @@ export class ProvaTesteComponent {
 		/**
 		 * Retorne uma String contendo o nome de todos os Livros que são de fantasia.
 		 */
+
+		// Cria uma nova lista de livros filtrando apenas os livros que forem do genero Fantasia
+		let livrosDeFantasia: Livro[] = this.listLivros.filter(livro => livro.genero === "Fantasia");
+
+		// Faz um tratamento de erro, caso o filtro acima não retorne nada ele não processa o resto da função e devolve o feedback para o usuário.
+		if(livrosDeFantasia.length <= 0){
+			return "Não possuem livros de Fantasia cadastrados.";
+		}
+
+		// Retorna para o usuário uma string com os livros de fantasia
+		return livrosDeFantasia
+			.map((livro) => livro.nome)
+			.join(", ");
 	}
 }
 
