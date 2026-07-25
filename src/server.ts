@@ -53,6 +53,9 @@ export class ProvaTesteComponent {
 			/**
              * Implemente a validação onde retorne o Indice do Livro caso encontre um com mesmo nome e genero
              */
+			if(livro.nome === livro && livro.genero === genero){
+				indiceLivro = livro.id
+			}
 		}
 		return indiceLivro
 	}
